@@ -1,11 +1,11 @@
 class Add {
-  final int? value1;
-  final int? value2;
+  final int value1;
+  final int value2;
 
-  Add(this.value1, this.value2);
+  Add({this.value1 = 10, this.value2 = 20});
 
   int addValue(){
-    int result = value1! + value2!;
+    int result = value1 + value2;
     return result;
   }
 
