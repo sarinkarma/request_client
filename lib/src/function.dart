@@ -1,3 +1,5 @@
+import '../request_client.dart';
+
 class Add {
   final int value1;
   final int value2;
@@ -12,5 +14,17 @@ class Add {
   int subValue(val, val2){
     int result = val - val2;
     return result;
+  }
+
+  Future callApi() async{
+    final authHeader = <String, String>{
+      'Accept': "application/json",
+      'Content-Type': 'application/json'
+    };
+
+    await RequestClient().get('https://reqres.in/api/users', authHeader).then((value) {
+      print(value.statusCode);
+      print(value.body);
+    });
   }
 }
